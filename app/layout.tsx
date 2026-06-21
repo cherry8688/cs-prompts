@@ -12,9 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "CS Prompts",
-  description: "Have Fun With The Prompts",
+  description: "Discover Viral AI Image Prompts",
+  verification: {
+    google: "5AJIhIV7KmcrwUKKQRJlg4GfB1-evnWC5HwEzRfSC7A",
+  },
 };
 
 export default function RootLayout({
