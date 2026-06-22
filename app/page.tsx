@@ -14,72 +14,84 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-black border-b border-gray-800">
-        <div className="max-w-7xl mx-auto flex items-center gap-4 p-4">
+    <main
+      className="min-h-screen"
+      style={{
+        background:
+          "linear-gradient(180deg,#dff4ff 0%,#b7e7ff 35%,#90d5ff 100%)",
+      }}
+    >
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/40 border-b border-white/50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-5">
+
+          <h1 className="text-4xl font-bold text-sky-900">
+            CS Prompts
+          </h1>
+
           <input
             type="text"
             placeholder="Search AI prompts..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 bg-gray-900 rounded-full px-5 py-3 outline-none"
+            className="flex-1 bg-white rounded-full px-5 py-3 border border-sky-200 outline-none text-sky-900"
           />
+        </div>
+      </header>
 
-             <h1 className="text-2xl font-bold">
-  CS Prompts
-</h1>
-            </div>
-          </header>
-
-      {/* Hero */}
-      <section className="text-center py-12 px-4">
-        <h2 className="text-5xl font-bold mb-4">
-          Discover Viral AI Image Prompts
+      {/* HERO */}
+      <section className="text-center py-14 px-6">
+        <h2 className="text-6xl font-bold text-sky-900">
+          AI Prompt Gallery
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Browse and copy the exact prompts behind trending AI-generated
-          images, portraits, anime styles, sketches, collages and more.
+        <p className="mt-4 text-sky-800 text-lg">
+          Discover viral AI image prompts, anime styles,
+          portraits, sketches, collages and much more.
         </p>
       </section>
 
-      {/* Prompt Grid */}
-      <section className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4 max-w-7xl mx-auto pb-20">
-        {filteredPrompts.map((prompt) => (
-          <div
-            key={prompt.id}
-            className="mb-4 break-inside-avoid bg-gray-900 rounded-2xl overflow-hidden hover:scale-[1.02] transition"
-          >
-            <img
-              src={prompt.image}
-              alt={prompt.title}
-              className="w-full"
-            />
+      {/* GRID */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
 
-            <div className="p-4">
-              <h3 className="font-semibold text-lg">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6">
+
+          {filteredPrompts.map((prompt) => (
+           <div
+  key={prompt.id}
+  className="mb-6 break-inside-avoid bg-white/70 backdrop-blur-lg rounded-3xl p-4 shadow-xl border-4 border-white"
+>
+            
+              {/* SMALLER IMAGE */}
+              <img
+                src={prompt.image}
+                alt={prompt.title}
+                className="w-full h-[140px] object-cover rounded-2xl border-4 border-white shadow-lg"
+              />
+
+              <h3 className="mt-4 text-xl font-bold text-sky-900">
                 {prompt.title}
               </h3>
 
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-sky-700 text-sm mt-1">
                 {prompt.category}
               </p>
 
+              {/* OPEN PROMPT BUTTON */}
               <Link
                 href={`/prompt/${prompt.id}`}
-                className="block mt-4 w-full bg-white text-black py-2 rounded-lg text-center font-semibold"
+                className="block mt-4 text-center bg-sky-600 text-white py-3 rounded-xl font-bold hover:bg-sky-700 transition"
               >
                 Open Prompt
               </Link>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-800 text-center py-8 text-gray-500">
-        © 2026 CS Prompts. All rights reserved.
+      {/* FOOTER */}
+      <footer className="text-center py-8 text-sky-900 font-medium">
+        © 2026 CS Prompts
       </footer>
     </main>
   );
