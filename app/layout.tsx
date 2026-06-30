@@ -12,9 +12,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "CS Prompts",
-  description: "Discover Viral AI Image Prompts",
+  description:
+    "Discover viral AI image prompts, ChatGPT prompts, Midjourney prompts, anime prompts, cinematic prompts and more.",
+  keywords: [
+    "AI Prompts",
+    "ChatGPT Prompts",
+    "Image Prompts",
+    "Midjourney",
+    "AI Images",
+    "CS Prompts",
+  ],
+  authors: [{ name: "CS Prompts" }],
+  creator: "CS Prompts",
   verification: {
     google: "5AJIhIV7KmcrwUKKQRJlg4GfB1-evnWC5HwEzRfSC7A",
   },
@@ -28,9 +39,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen antialiased">
+        {children}
+      </body>
     </html>
   );
 }
